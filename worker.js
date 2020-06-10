@@ -21,8 +21,9 @@ const data = {
   priceDiv: threads.workerData.priceDiv,
 };
 
-const sendResponse = (x) => {
+const sendResponse = (x, browser) => {
   parentPort.postMessage(x);
+  browser.close();
 };
 
 puppeteer
@@ -37,8 +38,6 @@ puppeteer
   })
   .then(async (browser) => {
     let page;
-    // console.log("11113");
-    // const aUrls = urls[i];
     const context = browser.defaultBrowserContext();
     const startTime = new Date().getTime();
     page = await browser.newPage();
@@ -71,18 +70,7 @@ puppeteer
           timeout: 5000,
         })
         .then(() => {
-          sendResponse(null);
-          // console.log(
-          //   "\x1b[36m",
-          //   new Date().toLocaleString(),
-          //   new Date().getTime() - startTime,
-          //   data.shop,
-          //   data.name,
-          //   `Нет в наличии`,
-          //   "\x1b[0m"
-          // );
-          // flag = false;
-          // browser.close();
+          sendResponse(null, browser);
         })
         .catch(async () => {
           // console.log("Создание заказа");
@@ -113,21 +101,7 @@ puppeteer
             "b#new-cart-price.label-detail",
             (elem) => elem.innerText
           );
-          sendResponse(nd);
-          // let colorT = "\x1b[0m";
-          // if (toNumber(nd) < toNumber(aUrls.price)) colorT = "\x1b[33m";
-          // console.log(
-          //   "\x1b[0m",
-          //   new Date().toLocaleString(),
-          //   new Date().getTime() - startTime,
-          //   data.shop,
-          //   data.name,
-          //   "Есть в наличии, Стоимость:",
-          //   colorT,
-          //   nd,
-          //   "\x1b[0m"
-          // );
-          // browser.close();
+          sendResponse(nd, browser);
         });
     }
     if (data.shop === "mvideo.ru") {
@@ -137,37 +111,18 @@ puppeteer
         })
         .then(async () => {
           const nd = await page.$eval(data.priceDiv, (elem) => elem.innerText);
-          sendResponse(nd);
-          // let colorT = "\x1b[0m";
-          // if (toNumber(nd) < toNumber(aUrls.price)) colorT = "\x1b[33m";
-          // console.log(
-          //   "\x1b[0m",
-          //   new Date().toLocaleString(),
-          //   new Date().getTime() - startTime,
-          //   aUrls.shop,
-          //   aUrls.name,
-          //   "Есть в наличии, Стоимость:",
-          //   colorT,
-          //   nd,
-          //   "\x1b[0m"
-          // );
+          sendResponse(nd, browser);
         })
         .catch(() => {
-          sendResponse(null);
-          // console.log(
-          //   "\x1b[36m",
-          //   new Date().toLocaleString(),
-          //   new Date().getTime() - startTime,
-          //   aUrls.shop,
-          //   aUrls.name,
-          //   `Нет в наличии`,
-          //   "\x1b[0m"
-          // );
+          sendResponse(null, browser);
         });
     }
     // while (flag) {
 
     // }
   })
-  .catch((e) => console.log(" Все упало", e));
+  .catch((e) => {
+    console.log(" Все упало", e);
+    process.exit();
+  });
 // await delay(2000);
