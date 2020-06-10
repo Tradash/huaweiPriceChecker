@@ -147,16 +147,18 @@ const priceCrawler = async () => {
           workerData: urls1[i].shops[j],
         }
       );
-      newWorker.on("message", (data) => {
+      newWorker.on("message", async (data) => {
         activeWorker--;
         rez[urls1[i].name][urls1[i].shops[j].shop] =
           data === null ? "Нет в наличии" : toNumber(data);
-        newWorker.terminate();
+        await delay(500);
+        await newWorker.terminate();
       });
-      newWorker.on("error", (data) => {
+      newWorker.on("error", async (data) => {
         activeWorker--;
         rez[urls1[i].name][urls1[i].shops[j].shop] = "Ошибка";
-        newWorker.terminate();
+        await delay(500);
+        await newWorker.terminate();
       });
     }
   }
