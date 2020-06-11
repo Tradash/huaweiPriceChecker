@@ -165,6 +165,7 @@ const priceCrawler = async () => {
   while (activeWorker !== 0) {
     await delay(500);
   }
+  console.log("");
   console.table(rez);
 };
 console.log("Запущено в ", new Date().toLocaleString());
