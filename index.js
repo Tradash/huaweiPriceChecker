@@ -3,6 +3,8 @@ const path = require("path");
 
 // const puppeteer = require("puppeteer");
 
+const interval = 2;
+
 const delay = async (delayInms) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -36,7 +38,7 @@ const urls1 = [
           "https://www.mvideo.ru/products/smartfon-huawei-p30-pro-black-vog-l29-30044981",
         color: null,
         priceDiv:
-          "div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
         price: "39 990 ₽",
       },
       {
@@ -57,7 +59,7 @@ const urls1 = [
           "https://www.mvideo.ru/products/smartfon-huawei-p30-pro-aurora-vog-l29-30043038",
         color: null,
         priceDiv:
-          "div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
         price: "39 990 ₽",
       },
       {
@@ -78,7 +80,7 @@ const urls1 = [
           "https://www.mvideo.ru/products/smartfon-huawei-p30-pro-breathing-crystal-vog-l29-30043039",
         color: null,
         priceDiv:
-          "div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
         price: "39 990 ₽",
       },
       {
@@ -175,4 +177,4 @@ setInterval(() => {
     "-------------------------------------------------------------------"
   );
   priceCrawler();
-}, 10 * 60 * 1000);
+}, interval * 60 * 1000);
