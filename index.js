@@ -134,6 +134,69 @@ const urls1 = [
       },
     ],
   },
+  {
+    name: "Huawei Nova 5T Crush Green",
+    shops: [
+      {
+        shop: "mvideo.ru",
+        url:
+          "https://www.mvideo.ru/products/smartfon-huawei-nova-5t-crush-green-yal-l21-30048457",
+        color: null,
+        priceDiv:
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+        price: "29 990 ₽",
+      },
+      {
+        shop: "shop.huawei.ru",
+        url: "https://shop.huawei.ru/product/huawei-nova-5t",
+        color:
+          "div.color-circle[style='width: 25px;height: 25px;background: #275747; border-radius: 50%;']",
+        price: "29 990 ₽",
+      },
+    ],
+  },
+  {
+    name: "Huawei Nova 5T Midsummer Purple",
+    shops: [
+      {
+        shop: "mvideo.ru",
+        url:
+          "https://www.mvideo.ru/products/smartfon-huawei-nova-5t-midsummer-purple-yal-l21-30046455",
+        color: null,
+        priceDiv:
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+        price: "29 990 ₽",
+      },
+      {
+        shop: "shop.huawei.ru",
+        url: "https://shop.huawei.ru/product/huawei-nova-5t",
+        color:
+          "div.color-circle[style='width: 25px;height: 25px;background: #4b06aa; border-radius: 50%;']",
+        price: "29 990 ₽",
+      },
+    ],
+  },
+  {
+    name: "Huawei Nova 5T Crush Blue",
+    shops: [
+      {
+        shop: "mvideo.ru",
+        url:
+          "https://www.mvideo.ru/products/smartfon-huawei-nova-5t-crush-blue-yal-l21-30046454",
+        color: null,
+        priceDiv:
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+        price: "29 990 ₽",
+      },
+      {
+        shop: "shop.huawei.ru",
+        url: "https://shop.huawei.ru/product/huawei-nova-5t",
+        color:
+          "div.color-circle[style='width: 25px;height: 25px;background: #0099ff; border-radius: 50%;']",
+        price: "29 990 ₽",
+      },
+    ],
+  },
 ];
 
 const priceCrawler = async () => {
