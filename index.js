@@ -101,7 +101,7 @@ const urls1 = [
           "https://www.mvideo.ru/products/smartfon-huawei-p30-aurora-ele-l29-30043036",
         color: null,
         priceDiv:
-          "div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
         price: "29 990 ₽",
       },
       {
@@ -122,7 +122,7 @@ const urls1 = [
           "https://www.mvideo.ru/products/smartfon-huawei-p30-breathing-crystal-ele-l29-30043037",
         color: null,
         priceDiv:
-          "div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
+          "div.o-pay__content-trade > div.c-pdp-price > div.c-pdp-price__summary > div.c-pdp-price__offers > div.c-pdp-price__current.sel-product-tile-price",
         price: "29 990 ₽",
       },
       {
@@ -226,6 +226,7 @@ const priceCrawler = async () => {
         await newWorker.terminate();
       });
     }
+    await delay(200);
   }
   while (activeWorker !== 0) {
     await delay(500);
